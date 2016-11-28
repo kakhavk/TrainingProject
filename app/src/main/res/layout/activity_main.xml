@@ -3,6 +3,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="technopark.hi.trainingproject.MainActivity">
 
     <android.support.v7.widget.RecyclerView
@@ -11,4 +12,5 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
     />
+
 </LinearLayout>
