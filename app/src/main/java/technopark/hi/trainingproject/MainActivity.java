@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     ShareDialog shareDialog;
 
 
-    public static int test=1;
+    public static int test=0;
 
     public static void setTest(int number){
         test=number;
@@ -49,17 +49,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initViews();
+
+
     }
 
     private void initViews(){
 
         recyclerView=(RecyclerView) findViewById(R.id.softgenews_recycler_view);
-        StatusPanel statusPanel=(StatusPanel) findViewById(R.id.statusPanel);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
         loadJSON();
+        StatusPanel statusPanel=(StatusPanel) findViewById(R.id.statusPanel);
     }
 
     private void loadJSON(){

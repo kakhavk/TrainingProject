@@ -41,6 +41,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(PostAdapter.ViewHolder holder, int i) {
+        MainActivity.setTest(Integer.parseInt(softge.get(i).getId()));
+
         String link="<a href=http://soft.ge/?p="+softge.get(i).getId()+">"+softge.get(i).getTitle()+"</a>";
 
         holder.title.setMovementMethod(LinkMovementMethod.getInstance());
@@ -72,7 +74,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             .placeholder(R.drawable.softge)
             .load(softge.get(i).getImage());
 
-        MainActivity.setTest(Integer.parseInt(softge.get(i).getId()));
+
 
     }
 
