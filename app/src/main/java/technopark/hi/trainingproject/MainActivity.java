@@ -27,6 +27,17 @@ public class MainActivity extends AppCompatActivity {
     private PostAdapter adapter;
     private String url="http://api.soft.ge";
     ShareDialog shareDialog;
+
+    public static int test=1;
+
+    public static void setTest(int number){
+        test=number;
+    }
+
+    public static int getTest(){
+        return test;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
         shareDialog = new ShareDialog(this);
         setContentView(R.layout.activity_main);
+
+        StatusPanel statusPanel=(StatusPanel) findViewById(R.id.statusPanel);
+
         initViews();
     }
 

@@ -2,6 +2,7 @@ package technopark.hi.trainingproject;
 
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.Spannable;
@@ -70,6 +71,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         Ion.with(holder.thumbnail)
             .placeholder(R.drawable.softge)
             .load(softge.get(i).getImage());
+
+        MainActivity.setTest(Integer.parseInt(softge.get(i).getId()));
+
     }
 
     private class URLSpanline_none extends URLSpan {

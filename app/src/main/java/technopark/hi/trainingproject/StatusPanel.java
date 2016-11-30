@@ -11,11 +11,11 @@ import android.widget.TextView;
  */
 
 public class StatusPanel extends TextView {
-
+    /*
     public StatusPanel(Context context) {
         super(context);
     }
-
+    */
     public StatusPanel(Context context, AttributeSet attrs) {
         super(context, attrs);
         //TypedArray typedArray=context.obtainStyledAttributes(attrs, R.styleable.StatusPanel);
@@ -23,8 +23,9 @@ public class StatusPanel extends TextView {
         setStatus(context);
     }
 
-    private void setStatus(Context context){
+    public void setStatus(Context context){
         setTextColor(ContextCompat.getColor(context, R.color.colorWhite));
-        setText("New");
+        setTextSize(14);
+        setText("New "+MainActivity.getTest());
     }
 }
