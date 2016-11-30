@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private String url="http://api.soft.ge";
     ShareDialog shareDialog;
 
+
     public static int test=1;
 
     public static void setTest(int number){
@@ -47,16 +48,17 @@ public class MainActivity extends AppCompatActivity {
         shareDialog = new ShareDialog(this);
         setContentView(R.layout.activity_main);
 
-        StatusPanel statusPanel=(StatusPanel) findViewById(R.id.statusPanel);
-
         initViews();
     }
 
     private void initViews(){
+
         recyclerView=(RecyclerView) findViewById(R.id.softgenews_recycler_view);
+        StatusPanel statusPanel=(StatusPanel) findViewById(R.id.statusPanel);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
+
         loadJSON();
     }
 
