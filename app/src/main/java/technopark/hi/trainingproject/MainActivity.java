@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         loadJSON();
-        StatusPanel statusPanel=(StatusPanel) findViewById(R.id.statusPanel);
+        //StatusPanel statusPanel=(StatusPanel) findViewById(R.id.statusPanel);
     }
 
     private void loadJSON(){

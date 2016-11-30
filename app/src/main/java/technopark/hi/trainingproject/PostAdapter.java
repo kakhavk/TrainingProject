@@ -74,7 +74,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             .placeholder(R.drawable.softge)
             .load(softge.get(i).getImage());
 
-
+        holder.statusPanel.setStatus();
 
     }
 
@@ -99,6 +99,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         private TextView title, date;
         private ImageView thumbnail;
         private ShareButton fbshare;
+        private StatusPanel statusPanel;
 
         public ViewHolder(View view) {
             super(view);
@@ -106,6 +107,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             date=(TextView)view.findViewById(R.id.date);
             thumbnail=(ImageView)view.findViewById(R.id.thumbnail);
             fbshare=(ShareButton) view.findViewById(R.id.fbshare);
+            statusPanel=(StatusPanel) view.findViewById(R.id.statusPanel);
 
         }
     }
