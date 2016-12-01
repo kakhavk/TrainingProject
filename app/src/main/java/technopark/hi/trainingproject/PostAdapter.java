@@ -67,14 +67,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentUrl(Uri.parse("http://soft.ge/?p="+softge.get(i).getId()))
                 .build();
-        holder.date.setText(softge.get(i).getDate());
+        //holder.date.setText(softge.get(i).getDate());
         holder.fbshare.setShareContent(content);
 
         Ion.with(holder.thumbnail)
             .placeholder(R.drawable.softge)
             .load(softge.get(i).getImage());
 
-        holder.statusPanel.setStatus();
+        holder.statusPanel.setStatus(softge.get(i).getDate());
 
     }
 
@@ -96,7 +96,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView title, date;
+        private TextView title;
         private ImageView thumbnail;
         private ShareButton fbshare;
         private StatusPanel statusPanel;
@@ -104,7 +104,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         public ViewHolder(View view) {
             super(view);
             title=(TextView)view.findViewById(R.id.title);
-            date=(TextView)view.findViewById(R.id.date);
             thumbnail=(ImageView)view.findViewById(R.id.thumbnail);
             fbshare=(ShareButton) view.findViewById(R.id.fbshare);
             statusPanel=(StatusPanel) view.findViewById(R.id.statusPanel);

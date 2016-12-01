@@ -39,6 +39,7 @@
                 android:textColorLink="@color/colorBlack"
                 android:text="blabla"
                 />
+            <!--
             <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
@@ -49,6 +50,7 @@
                 android:textStyle="normal"
                 android:textColor="#CCCCCC"
                 />
+                -->
             <com.facebook.share.widget.ShareButton
                 android:id="@+id/fbshare"
                 android:layout_width="wrap_content"
@@ -68,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorBlueFB"
-            app:inittest="1"
+
             />
     </LinearLayout>
 </LinearLayout>
