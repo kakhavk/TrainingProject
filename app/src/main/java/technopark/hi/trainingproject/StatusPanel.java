@@ -56,25 +56,30 @@ public class StatusPanel extends TextView {
 
         String ago="";
         int maxDaysInMonth=dateWeb.getActualMaximum(Calendar.DAY_OF_MONTH);
-        if(dateWeb.get(Calendar.MONTH)==dateNow.get(Calendar.MONTH)){
-            if(days<=maxDaysInMonth){
-                switch(maxDaysInMonth/7){
-                    case 1:
-                        ago=" ახალი ";
-                        break;
-                    case 2:
-                        ago="ორი კვირის წინ";
-                        break;
-                    case 3:
-                        ago="სამი კვირის წინ";
-                        break;
-                    default:
-                        ago="1 თვის წინ";
+        if(dateWeb.get(Calendar.YEAR)==dateNow.get(Calendar.YEAR)){
+            if(dateWeb.get(Calendar.MONTH)==dateNow.get(Calendar.MONTH)){
+                if(days<=maxDaysInMonth){
+                    switch(maxDaysInMonth/7){
+                        case 1:
+                            ago=" ახალი ";
+                            break;
+                        case 2:
+                            ago="ორი კვირის წინ";
+                            break;
+                        case 3:
+                            ago="სამი კვირის წინ";
+                            break;
+                        default:
+                            ago="1 თვის წინ";
+                    }
                 }
+            }else{
+                ago=((days+maxDaysInMonth)/30)+" თვის წინ";
             }
         }else{
-            ago=((days+maxDaysInMonth)/30)+" თვის წინ";
+            ago=(dateNow.get(Calendar.YEAR)-dateWeb.get(Calendar.YEAR))+" წლის წინ";
         }
-        setText(""+dateDay+" "+months[dateWeb.get(Calendar.MONTH)]+" "+ago+"");
+
+        setText(""+dateDay+" "+months[dateWeb.get(Calendar.MONTH)]+" "+dateYear+" - "+ago+"");
     }
 }
