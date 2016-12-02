@@ -55,11 +55,11 @@ public class StatusPanel extends TextView {
         setTextSize(14);
 
         String ago="";
-        int maxDaysInMonth=dateWeb.getActualMaximum(Calendar.DAY_OF_MONTH);
+        long maxDaysInMonth=dateWeb.getActualMaximum(Calendar.DAY_OF_MONTH);
         if(dateWeb.get(Calendar.YEAR)==dateNow.get(Calendar.YEAR)){
-            if(dateWeb.get(Calendar.MONTH)==dateNow.get(Calendar.MONTH)){
-                if(days<=maxDaysInMonth){
-                    switch(maxDaysInMonth/7){
+            if((dateWeb.get(Calendar.MONTH)==dateNow.get(Calendar.MONTH)) || (maxDaysInMonth>days)){
+                if(days<=maxDaysInMonth && (dateWeb.get(Calendar.MONTH)==dateNow.get(Calendar.MONTH))){
+                    switch(new Long(maxDaysInMonth/days).intValue()){
                         case 1:
                             ago=" ახალი ";
                             break;
@@ -70,16 +70,35 @@ public class StatusPanel extends TextView {
                             ago="სამი კვირის წინ";
                             break;
                         default:
-                            ago="1 თვის წინ";
+                            ago=days+" დღის წინ ("+(maxDaysInMonth/days)+")";
+                    }
+                }else{
+                    switch(new Long(days/7).intValue()){
+                        case 0:
+                            ago=" ახალი ";
+                            break;
+                        case 1:
+                            ago="ერთი კვირის წინ";
+                            break;
+                        case 2:
+                            ago="ორი კვირის წინ";
+                            break;
+                        case 3:
+                            ago="ორი კვირის წინ";
+                            break;
+                        default:
+                            ago=days+" დღის წინ";
                     }
                 }
             }else{
-                ago=((days+maxDaysInMonth)/30)+" თვის წინ";
+                ago=((days)/30)+" თვის წინ";
             }
+
         }else{
             ago=(dateNow.get(Calendar.YEAR)-dateWeb.get(Calendar.YEAR))+" წლის წინ";
         }
 
-        setText(""+dateDay+" "+months[dateWeb.get(Calendar.MONTH)]+" "+dateYear+" - "+ago+"");
+
+        setText(""+dateDay+" "+months[dateWeb.get(Calendar.MONTH)]+" "+dateYear+" - "+ago+" ");
     }
 }
