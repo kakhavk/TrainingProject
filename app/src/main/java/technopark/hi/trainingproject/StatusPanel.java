@@ -70,7 +70,7 @@ public class StatusPanel extends TextView {
                             ago="სამი კვირის წინ";
                             break;
                         default:
-                            ago=days+" დღის წინ ("+(maxDaysInMonth/days)+")";
+                            ago=days+" დღის წინ";
                     }
                 }else{
                     switch(new Long(days/7).intValue()){
